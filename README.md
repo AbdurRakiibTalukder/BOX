@@ -1,5 +1,5 @@
  <p align="center">
-  <img src="assets/box.png" alt="Project Logo" width="120">
+  <img src="box.png" alt="Project Logo" width="120">
   <br>
   <b>A high-performance, responsive dashboard built with Vanilla Web Technologies.</b>
 </p>
