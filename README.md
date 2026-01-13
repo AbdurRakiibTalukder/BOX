@@ -1,5 +1,5 @@
  <p align="center">
-  <img src="assets/logo.png" alt="Project Logo" width="120">
+  <img src="assets/box.png" alt="Project Logo" width="120">
   <br>
   <b>A high-performance, responsive dashboard built with Vanilla Web Technologies.</b>
 </p>
@@ -14,7 +14,7 @@
 ---
 
 ## 🖥️ Dashboard Preview
-![Dashboard Preview](assets/dashboard.png)
+![Dashboard Preview](dex-dark.png)
 > *A sleek interface designed for data clarity and user engagement.*
 
 ---
