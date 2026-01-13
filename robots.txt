@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /dash/
+
+Allow: /
+
+Sitemap: https://box.rakib.top/sitemap.xml
