@@ -40,8 +40,8 @@ This project is a cutting-edge dashboard designed to demonstrate advanced data v
 ### 1. Installation
 Simply clone the repository to your local machine:
 ```bash
-git clone https://github.com/yourusername/projectname.git
-cd projectname
+git rakib box
+cd box
 ```
 
 ### 2. Execution
