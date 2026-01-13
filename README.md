@@ -1,7 +1,7 @@
-<p align="center">
+ <p align="center">
   <img src="assets/logo.png" alt="Project Logo" width="120">
   <br>
-  <b>A high-performance, responsive dashboard built for educational excellence.</b>
+  <b>A high-performance, responsive dashboard built with Vanilla Web Technologies.</b>
 </p>
 
 <p align="center">
@@ -20,7 +20,7 @@
 ---
 
 ## 📌 Overview
-This project is a cutting-edge dashboard designed to demonstrate advanced data visualization and modern UI architecture. It serves as a comprehensive template for developers to learn high-level frontend development.
+This project is a cutting-edge dashboard designed to demonstrate advanced data visualization and modern UI architecture using pure web technologies. It serves as a comprehensive template for developers to learn high-level frontend development without the complexity of frameworks.
 
 > **Note:** This project is strictly for **Personal and Educational Use**. Commercial exploitation is prohibited.
 
@@ -28,9 +28,9 @@ This project is a cutting-edge dashboard designed to demonstrate advanced data v
 
 ## ✨ Key Features
 - 📊 **Dynamic Data Visualization:** Real-time updates with interactive charts.
-- 🎨 **Modern UI/UX:** Built with a focus on clean aesthetics and accessibility.
+- 🎨 **Modern UI/UX:** Built with a focus on clean aesthetics and CSS variables.
 - 📱 **Fully Responsive:** Optimized for 4K monitors down to mobile devices.
-- 🛠️ **Modular Architecture:** Easy to customize and extend.
+- 🛠️ **Lightweight:** No heavy frameworks—just pure HTML, CSS, and JS.
 - 🌑 **Dark Mode Support:** Seamlessly integrated theme switching.
 
 ---
@@ -38,24 +38,25 @@ This project is a cutting-edge dashboard designed to demonstrate advanced data v
 ## 🚀 Quick Start
 
 ### 1. Installation
+Simply clone the repository to your local machine:
 ```bash
 git clone https://github.com/yourusername/projectname.git
 cd projectname
-npm install
 ```
 
 ### 2. Execution
-```bash
-npm start
-```
+Since this is a Vanilla project, you don't need to install anything. 
+- **Option A:** Simply double-click `index.html` to open it in your browser.
+- **Option B (Recommended):** Use the "Live Server" extension in VS Code for the best experience.
 
 ---
 
 ## 🛠 Built With
-* **Frontend:** React.js
-* **Styling:** Tailwind CSS
-* **Charts:** Chart.js
-* **Icons:** Lucide Icons
+* **Structure:** HTML5
+* **Styling:** CSS3 (Flexbox/Grid/Variables)
+* **Interactivity:** Vanilla JavaScript (ES6+)
+* **Charts:** Chart.js (via CDN)
+* **Icons:** FontAwesome / Lucide Icons
 
 ---
 
