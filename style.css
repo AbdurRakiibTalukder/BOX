@@ -62,7 +62,7 @@
         .hero-image-container { margin-top: 4rem; perspective: 1500px; }
         .hero-image { max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow-md); transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .hero-image:hover { transform: scale(1.02) rotateX(2deg) rotateY(-2deg); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .hero-img-mobile { display: none; margin: 0 auto; max-width: 350px; }
+        .hero-img-mobile { display: none; margin: 0 auto; max-width: 330px; }
         
         /* --- GENERIC SECTION STYLES --- */
         .section { padding: 6rem 0; }
@@ -122,4 +122,10 @@
             .section { padding: 4rem 1rem; }
             .hero-img-desktop { display: none; }
             .hero-img-mobile { display: block; }
+        }
+        @media (max-width: 375px) {
+             .hero-img-mobile { max-width: 275px; }
+        }
+        @media (max-width: 320px) {
+             .hero-img-mobile { max-width: 240px; }
         }
