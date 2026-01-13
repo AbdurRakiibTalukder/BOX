@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOX - A Modern GitHub File Manager</title>
+    <meta name="description" content="Browse, upload, edit, and manage your GitHub files with a clean, intuitive, and powerful interface. No cloning, no command line. Just connect and go.">
+    <link rel="canonical" href="https://https://box.rakib.top/" />
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <img src="dark.svg" id="brand-logo" class="brand-logo" alt="BOX Logo">
+                <div class="nav-right">
+                    <button class="btn-icon" id="theme-toggle" title="Toggle Theme"><i id="theme-icon" class="ri-moon-line"></i></button>
+                    <a href="/dash" id="dashboard-btn" class="btn btn-primary hidden">Dashboard</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+             <div class="container fade-in">
+                <h1>The Modern File Manager for Your <span class="highlight">GitHub</span> Repositories.</h1>
+                <p>Browse, upload, edit, and manage your GitHub files with a clean, intuitive, and powerful interface. No cloning, no command line. Just connect and go.</p>
+                <a href="/dash" id="hero-cta-btn" class="btn btn-primary" style="font-size: 1rem; padding: 14px 30px;">Get Started Now</a>
+                
+                <div class="hero-image-container">
+                    <img src="dex-light.png" id="hero-img-desktop" alt="Desktop UI of BOX" class="hero-image hero-img-desktop">
+                    <img src="m-white.png" id="hero-img-mobile" alt="Mobile UI of BOX" class="hero-image hero-img-mobile">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="fade-in">
+                    <h2 class="section-title">Why Use BOX?</h2>
+                    <p class="section-subtitle">A powerful feature set designed for efficiency and ease of use.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card fade-in"><i class="ri-drag-move-2-line"></i><h3>Intuitive File Operations</h3><p>Enjoy drag & drop uploads, easy creation of files and folders, renaming, and deletion.</p></div>
+                    <div class="feature-card fade-in"><i class="ri-code-s-slash-line"></i><h3>Built-in Code Editor</h3><p>View and edit text-based files directly in the browser with an integrated editor and syntax highlighting.</p></div>
+                    <div class="feature-card fade-in"><i class="ri-image-line"></i><h3>Image & File Previews</h3><p>Instantly preview images on hover. Other file types are supported through a clean viewer modal.</p></div>
+                    <div class="feature-card fade-in"><i class="ri-moon-line"></i><h3>Light & Dark Modes</h3><p>Switch between a light and a carefully designed dark theme for your comfort, with all UI elements adapting.</p></div>
+                    <div class="feature-card fade-in"><i class="ri-smartphone-line"></i><h3>Fully Responsive</h3><p>The interface adapts to any screen size, providing a seamless experience on desktop and mobile.</p></div>
+                    <div class="feature-card fade-in"><i class="ri-pushpin-line"></i><h3>Pin Frequent Items</h3><p>Quickly access your most-used files and folders by pinning them to the sidebar for one-click access.</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section section-alt">
+            <div class="container fade-in">
+                <h2 class="section-title">Getting Started</h2>
+                <div class="token-container">
+                    <p class="token-text">
+                        To connect BOX to your account, you need to generate a <strong>Personal Access Token (Classic)</strong> from GitHub. This ensures secure access without sharing your password.
+                    </p>
+                    
+                    <div class="scope-card">
+                        <div class="scope-header">
+                            <i class="ri-key-2-line"></i>
+                            <div>
+                                <h3>Select Scopes</h3>
+                                <p style="font-size: 0.85rem; color: var(--muted); margin:0;">Scopes define the access for personal tokens.</p>
+                            </div>
+                        </div>
+                        <ul class="scope-list">
+                            <li class="scope-item">
+                                <i class="ri-checkbox-circle-fill scope-check"></i>
+                                <div>
+                                    <span class="scope-name">repo</span>
+                                    <span class="scope-desc">Full control of private repositories</span>
+                                </div>
+                            </li>
+                            <li class="scope-item">
+                                <i class="ri-checkbox-circle-fill scope-check"></i>
+                                <div>
+                                    <span class="scope-name">repo:status</span>
+                                    <span class="scope-desc">Access commit status</span>
+                                </div>
+                            </li>
+                            <li class="scope-item">
+                                <i class="ri-checkbox-circle-fill scope-check"></i>
+                                <div>
+                                    <span class="scope-name">repo_deployment</span>
+                                    <span class="scope-desc">Access deployment status</span>
+                                </div>
+                            </li>
+                            <li class="scope-item">
+                                <i class="ri-checkbox-circle-fill scope-check"></i>
+                                <div>
+                                    <span class="scope-name">public_repo</span>
+                                    <span class="scope-desc">Access public repositories</span>
+                                </div>
+                            </li>
+                            <li class="scope-item">
+                                <i class="ri-checkbox-circle-fill scope-check"></i>
+                                <div>
+                                    <span class="scope-name">repo:invite</span>
+                                    <span class="scope-desc">Access repository invitations</span>
+                                </div>
+                            </li>
+                            <li class="scope-item">
+                                <i class="ri-checkbox-circle-fill scope-check"></i>
+                                <div>
+                                    <span class="scope-name">security_events</span>
+                                    <span class="scope-desc">Read and write security events</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-cta">
+                    <a href="https://github.com/settings/tokens/new" class="btn btn-primary" target="_blank">Generate Token on GitHub <i class="ri-external-link-line"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="fade-in">
+                    <h2 class="section-title">Want to Contribute?</h2>
+                    <p class="section-subtitle">Help make BOX even better! Follow these simple steps to get started.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card fade-in">
+                        <i class="ri-git-repository-line"></i>
+                        <h3>1. Fork the Repository</h3>
+                        <p>Start by creating your own copy of the project on GitHub. This allows you to experiment without affecting the main codebase.</p>
+                    </div>
+                    <div class="step-card fade-in">
+                        <i class="ri-git-branch-line"></i>
+                        <h3>2. Create a New Branch</h3>
+                        <p>Make your changes in a dedicated branch. Use a clear and descriptive name, like `feat/add-new-button`.</p>
+                    </div>
+                    <div class="step-card fade-in">
+                        <i class="ri-git-pull-request-line"></i>
+                        <h3>3. Submit a Pull Request</h3>
+                        <p>Once you are happy with your changes, submit a pull request for the project maintainers to review and merge.</p>
+                    </div>
+                </div>
+                <div class="section-cta fade-in">
+                     <a href="https://github.com/AbdurRakiibTalukder/BOX/issues" class="btn btn-primary" target="_blank">View Open Issues</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="container fade-in">
+                <div class="opensource-card">
+                    <i class="ri-github-fill"></i>
+                    <h2 class="section-title" style="margin-bottom:0;">Proudly Open Source</h2>
+                    <p>BOX is built for the community. You can view the source code, report issues, or contribute to the project on GitHub. Your feedback and contributions are always welcome!</p>
+                    <a href="https://github.com/AbdurRakiibTalukder/BOX" class="btn btn-primary" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+             <div class="container fade-in">
+                <div class="license-card">
+                    <i class="ri-scales-3-line"></i>
+                    <h2 class="section-title" style="margin-bottom: 1rem;">License & Usage Policy</h2>
+                    <p>This project is provided for free personal and educational use. You are expressly forbidden from selling, re-branding, or distributing this software and claiming it as your own work.</p>
+                    <p>However, we strongly encourage community contributions. You are welcome to fork the repository to add new features and fix bugs. If you contribute, please add your name to the contributors list in the project's documentation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHANGED: Replaced 'section-alt' with 'section' to match Hero background -->
+        <section class="section">
+            <div class="container fade-in">
+                <div class="privacy-container">
+                    <i class="ri-lock-password-line" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem; display: inline-block;"></i>
+                    <h2 class="section-title">Privacy & Data Security</h2>
+                    <p class="section-subtitle" style="margin-bottom: 2.5rem;">
+                        Your security is our priority. Personal Access Tokens are stored <strong>strictly in your browser's local storage</strong> and are communicated directly to GitHub's API. They are never sent to our servers.
+                    </p>
+                    
+                    <div class="privacy-grid">
+                        <div class="privacy-option">
+                            <h4><i class="ri-global-line" style="color: var(--primary);"></i> Use Official Version</h4>
+                            <p>The easiest way to get started. We host the latest stable version of BOX, ensuring you have immediate access to new features without any setup.</p>
+                        </div>
+                        <div class="privacy-option">
+                            <h4><i class="ri-server-line" style="color: var(--primary);"></i> Run Your Own Repo</h4>
+                            <p>Prefer total isolation? Fork the repository and host it on Vercel, Netlify, or your own local server. You have 100% ownership of the code running.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Developed by <a href="https://abdur.rakib.top" target="_blank">Abdur Rakib Talukder</a>. Version 1.0.0</p>
+            <p>View the project on <a href="https://github.com/AbdurRakiibTalukder/BOX" target="_blank">GitHub</a>.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

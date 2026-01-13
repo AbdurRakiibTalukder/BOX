@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BOX</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.7/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+
+    <div id="toast" class="toast"><i class="ri-check-line"></i> Link Copied!</div>
+
+    <!-- GLOBAL CONTEXT MENU -->
+    <div id="context-menu">
+        <div class="cm-header" id="cm-header"></div>
+        <div class="cm-body" id="cm-body"></div>
+    </div>
+
+    <!-- LOGIN SCREEN -->
+    <div id="login" class="login-wrap">
+        <div class="login-box">
+            <div class="brand" style="justify-content:center; margin-bottom: 1.5rem;">
+                <img src="../dark.svg" id="login-logo" class="brand-logo" alt="BOX">
+            </div>
+            <div id="step-auth">
+                <p style="color:var(--muted); font-size:0.85rem; margin-bottom:1rem; text-align:center;">
+                    Enter GitHub username and a Token with <b>Repo</b> scope to access private files.
+                </p>
+                <input type="text" id="user" class="inp" placeholder="GitHub Username">
+                <input type="password" id="token" class="inp" placeholder="Personal Access Token (Repo scope)">
+                <button onclick="app.verifyAuth()" class="btn-pri" id="btn-auth">Connect Account</button>
+            </div>
+            <div id="step-repo" class="hidden" style="display:flex; flex-direction:column; height:100%;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span style="font-weight:600; font-size:0.9rem;">Select Repository</span>
+                    <button onclick="app.logoutComplete()" style="color:var(--primary); font-size:0.8rem; background:none;">Switch Account</button>
+                </div>
+                <input type="text" id="repo-search" class="inp" placeholder="Search repositories..." oninput="app.filterRepos(this.value)" style="margin-bottom:10px; padding:8px;">
+                <div id="repo-list" class="repo-list"></div>
+                <button onclick="app.finalizeLogin()" class="btn-pri" id="btn-select" disabled>Open File Manager</button>
+            </div>
+            <p id="msg" style="color:#ef4444; font-size:0.8rem; text-align:center; margin-top:1rem;"></p>
+        </div>
+        
+        <div class="login-credits">
+            Developed by <a href="https://abdur.rakib.top" target="_blank" class="dev-link">Abdur Rakib Talukder</a><br>
+            <span style="opacity: 0.7;">Version 1.0.0</span>
+        </div>
+    </div>
+
+    <!-- APP UI -->
+    <div id="app" class="hidden">
+        <!-- Sidebar Overlay for Mobile -->
+        <div id="sidebar-overlay" onclick="app.toggleSidebar(false)"></div>
+
+        <aside id="sidebar">
+            <div class="brand">
+                <img src="../dark.svg" id="sidebar-logo" class="brand-logo" alt="BOX">
+                <button class="btn-icon" style="width:30px; height:30px;" onclick="app.toggleTheme()">
+                    <i id="theme-icon" class="ri-moon-line"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-scroll">
+                <div class="menu-label">Menu</div>
+                <div class="menu-item active" 
+                     onclick="app.loadPath('')" 
+                     ondragover="app.handleDragOver(event)" 
+                     ondrop="app.handleDrop(event, '')">
+                    <i class="ri-hard-drive-2-line"></i> All Files
+                </div>
+
+                <div class="menu-label">Folders</div>
+                <div id="sidebar-folders"></div>
+
+                <div class="menu-label">Pinned</div>
+                <div id="pinned-list"></div>
+            </div>
+            
+            <div class="profile">
+                <img id="d-avatar" src="" class="avatar">
+                <div class="user-info">
+                    <div id="d-name" class="user-full-name">Full Name</div>
+                    <div id="d-user" class="user-login">@username</div>
+                </div>
+                <button class="btn-icon" style="border:none; background:transparent;" onclick="app.openLogoutModal()" title="Logout"><i class="ri-logout-box-r-line"></i></button>
+            </div>
+            
+            <div class="sidebar-version">Version 1.0.0</div>
+        </aside>
+
+        <main ondragover="app.onDragOver(event)" ondragleave="app.onDragLeave(event)" ondrop="app.onDrop(event)">
+            <div id="drop-overlay">Drop files to upload</div>
+            
+            <header>
+                <div style="display:flex; align-items:center; gap:10px; flex:1; overflow:hidden;">
+                    <button id="menu-btn" class="btn-icon" onclick="app.toggleSidebar()"><i class="ri-menu-line"></i></button>
+                    <div class="breadcrumbs" id="crumbs"></div>
+                </div>
+
+                <div class="toolbar">
+                    <div class="dropdown" id="dd">
+                        <div class="dd-btn" onclick="app.toggleDD()">
+                            <span id="dd-label">All Items</span> <i class="ri-filter-3-line"></i>
+                        </div>
+                        <div class="dd-menu">
+                            <div class="dd-item selected" onclick="app.filter('all', 'All Items')"><i class="ri-function-line"></i> All Items</div>
+                            <div class="dd-item" onclick="app.filter('folder', 'Folders')"><i class="ri-folder-line"></i> Folders</div>
+                            <div class="dd-item" onclick="app.filter('doc', 'Documents')"><i class="ri-file-text-line"></i> Documents</div>
+                            <div class="dd-item" onclick="app.filter('image', 'Images')"><i class="ri-image-line"></i> Images</div>
+                            <div class="dd-item" onclick="app.filter('audio', 'Audio')"><i class="ri-music-2-line"></i> Audio</div>
+                            <div class="dd-item" onclick="app.filter('video', 'Video')"><i class="ri-movie-line"></i> Video</div>
+                            <div class="dd-item" onclick="app.filter('code', 'Code & Scripts')"><i class="ri-code-s-slash-line"></i> Code & Scripts</div>
+                            <div class="dd-item" onclick="app.filter('archive', 'Archives')"><i class="ri-file-zip-line"></i> Archives</div>
+                        </div>
+                    </div>
+
+                    <button class="btn-icon" onclick="app.modal('folder')" title="New Folder"><i class="ri-folder-add-line"></i></button>
+                    <button class="btn-icon" onclick="app.modal('file')" title="New File"><i class="ri-file-add-line"></i></button>
+                    <button class="btn-icon" onclick="document.getElementById('upl').click()" style="background:var(--primary); color:white; border:none;"><i class="ri-upload-2-line"></i></button>
+                    <input type="file" id="upl" hidden onchange="app.upload(this.files[0])">
+                </div>
+            </header>
+
+            <div class="grid-area">
+                <div id="loader" class="hidden"><div class="loader"></div></div>
+                <div id="grid" class="grid"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODALS -->
+    <div id="m-viewer" class="modal-overlay hidden">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <div style="display:flex; align-items:center; gap:10px; overflow:hidden;">
+                    <i class="ri-file-edit-line" style="color:var(--primary); flex-shrink:0;"></i>
+                    <strong id="v-title" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Filename</strong>
+                    <span id="v-unsaved" class="hidden" style="color:var(--muted); font-size:0.8rem;">(Unsaved)</span>
+                </div>
+                <div style="display:flex; gap:10px; flex-shrink:0;">
+                    <button id="btn-save" class="btn-pri hidden" style="width:auto; padding:8px 16px;" onclick="app.saveFile()">Save</button>
+                    <button class="btn-icon" onclick="app.closeM()"><i class="ri-close-line"></i></button>
+                </div>
+            </div>
+            <div class="modal-body" id="v-body" style="padding:0;"></div>
+        </div>
+    </div>
+
+    <div id="m-input" class="modal-overlay hidden">
+        <div class="modal modal-sm">
+            <h3 id="i-title" style="margin-top:0;">Create</h3>
+            <input type="text" id="i-val" class="inp" placeholder="Enter name...">
+            <div class="btn-row">
+                <button class="btn-sec" onclick="app.closeM()">Cancel</button>
+                <button id="i-btn" class="btn-pri" style="width:auto; padding:0 20px;">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="m-confirm" class="modal-overlay hidden">
+        <div class="modal modal-sm">
+            <h3 style="margin-top:0;"><i class="ri-question-line" style="color:var(--primary)"></i> Confirm</h3>
+            <p id="c-msg" style="color:var(--muted)">Are you sure?</p>
+            <div class="btn-row">
+                <button class="btn-sec" onclick="app.resolveConfirm(false)">Cancel</button>
+                <button class="btn-pri" style="width:auto; padding:0 20px;" onclick="app.resolveConfirm(true)">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="m-logout" class="modal-overlay hidden">
+        <div class="modal modal-sm" style="text-align:center;">
+            <h3 style="margin-top:0;">Session Options</h3>
+            <p style="color:var(--muted); margin-bottom:20px;">What would you like to do?</p>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+                <button class="btn-pri" onclick="app.changeRepo()"><i class="ri-git-repository-line"></i> Switch Repository</button>
+                <button class="btn-sec" onclick="app.logoutComplete()" style="color:#ef4444; border-color:#ef4444;"><i class="ri-logout-box-line"></i> Log Out Completely</button>
+                <button class="btn-sec" onclick="document.getElementById('m-logout').classList.add('hidden')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="m-conflict" class="modal-overlay hidden">
+        <div class="modal modal-sm">
+            <h3 style="margin-top:0;">File Conflict</h3>
+            <p style="color:var(--muted)">A file named <strong id="conflict-name" style="color:var(--text)"></strong> already exists.</p>
+            <div style="display:flex; flex-direction:column; gap:8px; margin-top:20px;">
+                <button class="btn-pri" onclick="app.resolveConflict('replace')" style="background:#ef4444;">Replace</button>
+                <button class="btn-pri" onclick="app.resolveConflict('keep')">Keep Both (Rename)</button>
+                <button class="btn-sec" onclick="app.resolveConflict('cancel')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="m-alert" class="modal-overlay hidden">
+        <div class="modal modal-sm">
+            <h3 style="margin-top:0;">Notification</h3>
+            <p id="a-msg" style="color:var(--muted)">Message</p>
+            <div class="btn-row"><button class="btn-pri" style="width:100%" onclick="document.getElementById('m-alert').classList.add('hidden')">OK</button></div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
