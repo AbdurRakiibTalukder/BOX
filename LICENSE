@@ -1,26 +1,24 @@
- Copyright (c) 2026 — Abdur Rakib Talukder All rights reserved.
+Copyright (c) 2026 — Project Author(s)
+All rights reserved.
 
-
-
- 1. Grant of License
+1. GRANT OF LICENSE
 Subject to the terms and conditions of this License, the Author(s) hereby grant you a worldwide, non-exclusive, no-charge, royalty-free license to use, copy, modify, and fork this software for Personal and Educational Use only.
 
- 2. Permitted Uses
-*   Personal Use: Use for private hobby projects, self-learning, and experimentation.
-*   Educational Use: Use by students and educators in a classroom or academic setting.
-*   Development: You may fork this repository to fix bugs, add features, or improve documentation for your own use or to contribute back to the project.
+2. PERMITTED USES
+- Personal Use: Use for private hobby projects, self-learning, and experimentation.
+- Educational Use: Use by students and educators in a classroom or academic setting.
+- Development: You may fork this repository to fix bugs, add features, or improve documentation for your own use or to contribute back to the project.
 
- 3. Restrictions (Conditions of Use)
-*   Non-Commercial Only: You may not use this software for any commercial purpose. This includes, but is not limited to: using the software for business operations, incorporating it into a product for sale, or using it as part of a paid service.
-*   No Rebranding: You may not redistribute this software or any modified version of it as your own work.
-*   Attribution: Any forks or derivative works must retain this original license file and provide clear credit to the original Author(s).
-*   No Claim of Authorship: You may not claim to be the original creator or present this software as a proprietary product.
+3. RESTRICTIONS (CONDITIONS OF USE)
+- Non-Commercial Only: You may not use this software for any commercial purpose. This includes business operations, incorporating it into a product for sale, or using it as part of a paid service.
+- No Rebranding: You may not redistribute this software or any modified version as your own work.
+- Attribution: Any forks or derivative works must retain this license and clearly credit the original Author(s).
+- No Claim of Authorship: You may not claim to be the original creator or present this software as a proprietary product.
 
- 4. Contributions
+4. CONTRIBUTIONS
 By submitting code, documentation, or other materials ("Contributions") to this project, you agree that:
-1.  Your Contributions will be licensed under these same terms.
-2.  You grant the original Author(s) a perpetual, irrevocable, worldwide license to use, modify, and distribute your Contributions as part of the project.
-3.  You will be credited in the `CONTRIBUTORS` file or relevant documentation.
+- Your Contributions will be licensed under these same terms.
+- You grant the original Author(s) a perpetual, irrevocable, worldwide license to use, modify, and distribute your Contributions as part of the project.
 
- 5. No Warranty
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+5. NO WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
