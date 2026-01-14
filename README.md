@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="box.png" alt="BOX Logo" width="120">
+  <img src="wordmark.svg" alt="BOX Logo" width="120">
   <br>
   <b>The Modern File Manager for Your GitHub Repositories.</b>
   <br>
