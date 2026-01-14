@@ -1,83 +1,90 @@
- <p align="center">
-  <img src="box.png" alt="Project Logo" width="120">
+<p align="center">
+  <img src="box.png" alt="BOX Logo" width="120">
   <br>
-  <b>A high-performance, responsive dashboard built with Vanilla Web Technologies.</b>
+  <b>The Modern File Manager for Your GitHub Repositories.</b>
+  <br>
+  <i>Browse, upload, edit, and manage GitHub files with a clean, intuitive interface. No cloning required.</i>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-Non--Commercial-orange.svg" alt="License">
   <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/Status-Active-brightgreen.svg" alt="Status">
-  <img src="https://img.shields.io/badge/Contributions-Welcome-heart.svg" alt="Contributions">
+  <img src="https://img.shields.io/badge/Open%20Source-Yes-heart.svg" alt="Contributions">
 </p>
 
 ---
 
-## 🖥️ Dashboard Preview
-![Dashboard Preview](dex-dark.png)
-> *A sleek interface designed for data clarity and user engagement.*
+## 🖥️ Desktop UI
+![Desktop UI of BOX](dex-dark.png)
+> *A powerful feature set designed for efficiency and ease of use.*
 
 ---
 
-## 📌 Overview
-This project is a cutting-edge dashboard designed to demonstrate advanced data visualization and modern UI architecture using pure web technologies. It serves as a comprehensive template for developers to learn high-level frontend development without the complexity of frameworks.
+## 📌 Why Use BOX?
+BOX eliminates the need for the command line when making quick changes to your GitHub repositories. Just connect your token and manage your code directly from the browser.
 
-> **Note:** This project is strictly for **Personal and Educational Use**. Commercial exploitation is prohibited.
-
----
-
-## ✨ Key Features
-- 📊 **Dynamic Data Visualization:** Real-time updates with interactive charts.
-- 🎨 **Modern UI/UX:** Built with a focus on clean aesthetics and CSS variables.
-- 📱 **Fully Responsive:** Optimized for 4K monitors down to mobile devices.
-- 🛠️ **Lightweight:** No heavy frameworks—just pure HTML, CSS, and JS.
-- 🌑 **Dark Mode Support:** Seamlessly integrated theme switching.
+### ✨ Key Features
+- 📂 **Intuitive File Operations:** Enjoy drag & drop uploads, easy creation of files/folders, renaming, and deletion.
+- 📝 **Built-in Code Editor:** View and edit text-based files with integrated syntax highlighting.
+- 🖼️ **Image & File Previews:** Instantly preview images on hover and view other files through a clean modal.
+- 🌑 **Light & Dark Modes:** A carefully designed dark theme and light theme that adapts to your comfort.
+- 📱 **Fully Responsive:** A seamless experience across desktop, tablets, and mobile devices.
+- 📌 **Pin Frequent Items:** One-click access to your most-used files and folders via the sidebar.
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-### 1. Installation
-Simply clone the repository to your local machine:
-```bash
-git rakib box
-cd box
-```
+To connect BOX to your account, you need to generate a **Personal Access Token (Classic)** from GitHub. This ensures secure access without sharing your password.
 
-### 2. Execution
-Since this is a Vanilla project, you don't need to install anything. 
-- **Option A:** Simply double-click `index.html` to open it in your browser.
-- **Option B (Recommended):** Use the "Live Server" extension in VS Code for the best experience.
+### 1. Generate Token
+Go to GitHub and generate a token with the following **Scopes**:
+- `repo` (Full control of private repositories)
+- `repo:status` (Access commit status)
+- `repo_deployment` (Access deployment status)
+- `public_repo` (Access public repositories)
+- `repo:invite` (Access repository invitations)
+- `security_events` (Read and write security events)
+
+### 2. Connect
+Paste your token into the BOX interface to start managing your repositories instantly.
+
+---
+
+## 🛡️ Privacy & Data Security
+Your security is our priority. 
+- **Local Storage:** Personal Access Tokens are stored strictly in your browser's local storage.
+- **Direct Communication:** Your token is communicated directly to GitHub's API. 
+- **No Servers:** We never send your data or tokens to our servers.
 
 ---
 
 ## 🛠 Built With
-* **Structure:** HTML5
-* **Styling:** CSS3 (Flexbox/Grid/Variables)
+* **Structure:** HTML5 (Vanilla)
+* **Styling:** CSS3 (Custom properties, Responsive Design)
 * **Interactivity:** Vanilla JavaScript (ES6+)
-* **Charts:** Chart.js (via CDN)
-* **Icons:** FontAwesome / Lucide Icons
+* **API:** GitHub REST API
 
 ---
 
 ## ❤️ Contributing
-Contributions make the community amazing! 
+Help make BOX even better! We strongly encourage community contributions.
 
-1. **Fork** the project.
-2. **Create** your Feature Branch (`git checkout -b feature/NewFeature`).
-3. **Commit** your changes (`git commit -m 'Add some NewFeature'`).
-4. **Push** to the branch (`git push origin feature/NewFeature`).
-5. **Open** a Pull Request.
+1. **Fork the Repository**: Create your own copy of the project.
+2. **Create a New Branch**: Use a descriptive name (e.g., `feat/add-new-button`).
+3. **Submit a Pull Request**: Once your changes are ready, submit them for review.
+
+*Please remember to add your name to the contributors list in the documentation!*
 
 ---
 
-## 📜 License Summary
-**Copyright (c) 2026 — Project Author(s)**
+## 📜 License & Usage Policy
+**Copyright (c) 2026 — BOX Project**
 
-This project is **Source-Available**. 
-- ✅ **YES:** Use for learning, school projects, or private hobby work.
-- ✅ **YES:** Fork and modify for personal use.
-- ❌ **NO:** Selling, re-branding, or use in any business setting.
-- ❌ **NO:** Claiming the original work as your own.
+This project is provided for **free personal and educational use**. 
+- ✅ **Allowed:** Forking, modifying for personal use, and bug fixes.
+- ❌ **Forbidden:** Selling, re-branding, or distributing this software and claiming it as your own work.
 
-Full legal details in the [LICENSE](./LICENSE) file.
+---
+<p align="center">Proudly Open Source — Built for the community.</p>
